@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="CafeYuk! bantu kamu menemukan cafe di Kalimantan Selatan yang pas untuk nongkrong, belajar, atau WFC. Jelajahi 1.000+ titik cafe lewat peta interaktif."
+    />
+    <meta name="theme-color" content="#f2e6dc" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <title>CafeYuk! — Cari Cafe Nongkrong, Belajar & WFC di Kalsel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,700;1,9..144,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="qgis2web_2026_11_01-12_33_45_135385/css/leaflet.css" />
+    <link rel="stylesheet" href="qgis2web_2026_11_01-12_33_45_135385/css/MarkerCluster.css" />
+    <link rel="stylesheet" href="qgis2web_2026_11_01-12_33_45_135385/css/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#jelajah">Langsung ke peta cafe</a>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>1.043 titik cafe di Kalimantan Selatan</span><i>✦</i>
+        <span>Nongkrong? Bisa.</span><i>✦</i>
+        <span>Belajar? Cari yang tenang.</span><i>✦</i>
+        <span>WFC? Banyak pilihan.</span><i>✦</i>
+        <span>1.043 titik cafe di Kalimantan Selatan</span><i>✦</i>
+        <span>Nongkrong? Bisa.</span><i>✦</i>
+        <span>Belajar? Cari yang tenang.</span><i>✦</i>
+        <span>WFC? Banyak pilihan.</span><i>✦</i>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="CafeYuk! — Beranda">
+          <span>CafeYuk</span><b>!</b>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="site-nav"
+          aria-expanded="false"
+          aria-label="Buka menu navigasi"
+        >
+          <span></span><span></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
+          <a class="nav-link is-active" href="#jelajah" aria-current="location">Cari Cafe</a>
+          <a class="nav-link" href="about.html">Tentang Kami</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> WebGIS cafe Kalimantan Selatan</p>
+            <h1 id="hero-title">
+              Nongkrong, belajar, atau WFC?
+              <span class="hero-accent"><em>Ada cafenya.</em></span>
+            </h1>
+            <p class="hero-lede">
+              Capek scroll rekomendasi yang itu-itu aja? CafeYuk! memetakan lebih dari
+              seribu cafe di Kalsel biar kamu tinggal pilih tempat yang paling pas
+              buat rencanamu hari ini.
+            </p>
+            <div class="hero-stats" aria-label="Ringkasan data CafeYuk!">
+              <div>
+                <strong data-stat="total">1.043</strong>
+                <span>titik cafe</span>
+              </div>
+              <span class="stat-divider"></span>
+              <div>
+                <strong data-stat="areaCount">13</strong>
+                <span>kabupaten/kota</span>
+              </div>
+              <span class="stat-divider"></span>
+              <div>
+                <strong data-stat="averageRating">4,6</strong>
+                <span>rata-rata rating</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+            <div class="sunburst"></div>
+            <div class="poster-card">
+              <div class="poster-top">
+                <span>Peta rasa</span>
+                <span>Kalsel · 2026</span>
+              </div>
+              <div class="poster-illustration">
+                <svg viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="12" y="11" width="336" height="258" rx="39" fill="#F5D58A" stroke="#000500" stroke-width="3" />
+                  <path d="M73 232V112C73 72.788 104.788 41 144 41H216C255.212 41 287 72.788 287 112V232" fill="#F2E6DC" stroke="#000500" stroke-width="3" />
+                  <path d="M73 112C73 72.788 104.788 41 144 41H216C255.212 41 287 72.788 287 112" stroke="#000500" stroke-width="3" />
+                  <path d="M178 41V232M73 158H287" stroke="#000500" stroke-width="2.4" stroke-dasharray="6 7" opacity=".45" />
+                  <circle cx="287" cy="63" r="30" fill="#EC9E5B" stroke="#000500" stroke-width="3" />
+                  <path d="M287 18v-7M319 31l5-5M337 63h7M319 95l5 5" stroke="#000500" stroke-width="2.4" stroke-linecap="round" />
+                  <path d="M55 217H305" stroke="#000500" stroke-width="4" stroke-linecap="round" />
+                  <path d="M72 231H303" stroke="#000500" stroke-width="3" stroke-linecap="round" opacity=".45" />
+                  <rect x="89" y="160" width="48" height="52" rx="5" transform="rotate(-7 89 160)" fill="#F0B9B4" stroke="#000500" stroke-width="3" />
+                  <path d="M98 169h30M98 178h25M98 187h29" stroke="#000500" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M228 200h58V159a5 5 0 0 0-5-5h-48a5 5 0 0 0-5 5v41Z" fill="#B7C9A7" stroke="#000500" stroke-width="3" />
+                  <path d="M238 166h38M238 175h28" stroke="#000500" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M222 200h71l-6 9h-59l-6-9Z" fill="#000500" />
+                  <path d="M174 147h61v30a24 24 0 0 1-24 24h-13a24 24 0 0 1-24-24v-30Z" fill="#4A2C1A" stroke="#000500" stroke-width="3" />
+                  <path d="M235 154h9a12 12 0 0 1 0 24h-9" stroke="#000500" stroke-width="3" />
+                  <path d="M164 204h81" stroke="#000500" stroke-width="3" stroke-linecap="round" />
+                  <path d="M188 133c0-8 10-9 10-17M205 133c0-8 10-9 10-17" stroke="#000500" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M154 60c4-5 10-5 14 0M190 72c4-5 10-5 14 0" stroke="#000500" stroke-width="2.3" stroke-linecap="round" />
+                  <path d="M118 31c2.2 6.5 4.5 8.8 11 11-6.5 2.2-8.8 4.5-11 11-2.2-6.5-4.5-8.8-11-11 6.5-2.2 8.8-4.5 11-11Z" fill="#F2E6DC" stroke="#000500" stroke-width="2" />
+                  <circle cx="266" cy="125" r="5" fill="#F0B9B4" stroke="#000500" stroke-width="2" />
+                  <path d="M39 88c8 4 10 10 10 19-9 0-15-2-19-10 2-4 5-7 9-9Z" fill="#B7C9A7" stroke="#000500" stroke-width="2" />
+                </svg>
+              </div>
+              <div class="poster-bottom">
+                <span class="poster-script">dari pagi sampai<br />lupa waktu.</span>
+                <span class="poster-stamp"><b>1.043</b> spot</span>
+              </div>
+            </div>
+
+            <span class="sticker sticker-one">nongkrong</span>
+            <span class="sticker sticker-two">belajar</span>
+            <span class="sticker sticker-three">wfc</span>
+            <span class="sticker sticker-four">buka 24 jam</span>
+            <span class="art-star art-star-one">✦</span>
+            <span class="art-star art-star-two">✦</span>
+          </div>
+        </div>
+
+        <div class="search-panel">
+          <form class="search-form" role="search" aria-label="Cari cafe">
+            <label class="sr-only" for="cafe-search">Cari nama cafe, area, atau alamat</label>
+            <div class="search-input-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.8" cy="10.8" r="6.6"></circle>
+                <path d="m16 16 4.2 4.2"></path>
+              </svg>
+              <input
+                id="cafe-search"
+                type="search"
+                name="q"
+                placeholder="Cari nama cafe, area, atau alamat..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button class="search-clear" id="search-clear" type="button" aria-label="Hapus kata kunci" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m6 6 12 12M18 6 6 18"></path>
+                </svg>
+              </button>
+            </div>
+
+            <button class="filter-button" id="open-filter" type="button" aria-haspopup="dialog">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h16M7 12h10M10 18h4"></path>
+                <circle cx="8" cy="6" r="1.7" fill="currentColor" stroke="none"></circle>
+                <circle cx="15" cy="12" r="1.7" fill="currentColor" stroke="none"></circle>
+                <circle cx="12" cy="18" r="1.7" fill="currentColor" stroke="none"></circle>
+              </svg>
+              <span>Filter</span>
+              <b class="filter-count" id="filter-count" hidden>0</b>
+            </button>
+          </form>
+
+          <div class="quick-wrap">
+            <span class="quick-label">Langsung pilih:</span>
+            <div class="quick-filters" id="quick-filters" aria-label="Filter cepat">
+              <button class="quick-chip is-active" type="button" data-quick="all" aria-pressed="true">
+                <span class="chip-dot"></span> Semua
+              </button>
+              <button class="quick-chip" type="button" data-quick="nongkrong" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c.7 5.1 2.9 7.4 8 8-5.1.7-7.4 2.9-8 8-.7-5.1-2.9-7.4-8-8 5.1-.7 7.4-2.9 8-8Z"></path></svg>
+                Nongkrong
+              </button>
+              <button class="quick-chip" type="button" data-quick="belajar" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h6.2A2.8 2.8 0 0 1 13 8.3V19a3.5 3.5 0 0 0-3.5-3.5H4v-10ZM20 5.5h-4.2A2.8 2.8 0 0 0 13 8.3V19a3.5 3.5 0 0 1 3.5-3.5H20v-10Z"></path></svg>
+                Belajar
+              </button>
+              <button class="quick-chip" type="button" data-quick="wfc" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.8"></rect><path d="M2.5 19h19M9.5 19l.8-3M14.5 19l-.8-3"></path></svg>
+                WFC
+              </button>
+              <button class="quick-chip" type="button" data-quick="open24" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.2"></circle><path d="M12 7.5V12l3 1.8"></path></svg>
+                Buka 24 Jam
+              </button>
+              <button class="quick-chip" type="button" data-quick="rating45" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.2 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.2 5.9-.9L12 3.5Z"></path></svg>
+                Rating 4.5+
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="explorer" id="jelajah" aria-labelledby="explorer-title">
+        <div class="container">
+          <div class="explorer-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot"></span> Peta interaktif</p>
+              <h2 id="explorer-title">Satu peta, <em>seribu alasan</em> buat keluar rumah.</h2>
+            </div>
+            <p class="explorer-note">
+              <span class="live-dot"></span>
+              <span data-data-note>Data cafe &amp; batas wilayah dari QGIS</span>
+            </p>
+          </div>
+
+          <div class="explorer-grid">
+            <section class="map-card" aria-labelledby="map-title">
+              <div class="map-card-head">
+                <div class="map-heading">
+                  <span class="map-heading-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20 10c0 5.2-8 11-8 11S4 15.2 4 10a8 8 0 1 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="2.6"></circle>
+                    </svg>
+                  </span>
+                  <div>
+                    <h3 id="map-title">Peta sebaran cafe</h3>
+                    <p>Kalimantan Selatan</p>
+                  </div>
+                </div>
+                <button class="mini-button" type="button" id="reset-map">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 8.5A8 8 0 1 1 4.5 14"></path>
+                    <path d="M5 3v5.5h5.5"></path>
+                  </svg>
+                  Reset peta
+                </button>
+              </div>
+
+              <div class="map-frame">
+                <div id="map" aria-label="Peta interaktif sebaran cafe di Kalimantan Selatan"></div>
+
+                <div class="map-loading" id="map-loading">
+                  <span class="loading-cup"></span>
+                  <p>Menyiapkan peta...</p>
+                </div>
+
+                <div class="map-hint">
+                  <span><b>Hover</b> nama &amp; alamat</span>
+                  <i></i>
+                  <span><b>Klik</b> detail cafe</span>
+                </div>
+
+                <div class="map-legend" aria-label="Legenda kategori cafe">
+                  <span><i class="legend-dot coffee"></i>Coffee Shop</span>
+                  <span><i class="legend-dot cafe"></i>Cafe</span>
+                  <span><i class="legend-dot restaurant"></i>Resto</span>
+                </div>
+
+                <div class="map-count-chip">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 10c0 5.2-8 11-8 11S4 15.2 4 10a8 8 0 1 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="2.6"></circle>
+                  </svg>
+                  <strong id="map-visible-count">1.043</strong><span>titik</span>
+                </div>
+
+                <div class="map-empty" id="map-empty" hidden>
+                  <strong>Belum ada titik di peta.</strong>
+                  <span>Coba longgarkan filter atau ganti kata kunci.</span>
+                </div>
+              </div>
+
+              <div class="map-card-foot">
+                <span>GeoJSON &amp; batas wilayah: ekspor QGIS</span>
+                <span>Basemap: © OpenStreetMap · CARTO</span>
+              </div>
+            </section>
+
+            <section class="results-panel" aria-labelledby="results-title">
+              <div class="results-head">
+                <div>
+                  <p class="results-kicker">Pilihan buat kamu</p>
+                  <h3 id="results-title"><span id="result-count">1.043</span> cafe</h3>
+                </div>
+                <label class="sort-control">
+                  <span>Urutkan</span>
+                  <select id="cafe-sort" aria-label="Urutkan daftar cafe">
+                    <option value="relevance">Paling relevan</option>
+                    <option value="rating">Rating tertinggi</option>
+                    <option value="reviews">Ulasan terbanyak</option>
+                    <option value="name">Nama A–Z</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="active-filters" id="active-filters" hidden></div>
+              <p class="result-meta" id="result-meta" aria-live="polite">Menampilkan cafe pilihan.</p>
+
+              <div class="cafe-list" id="cafe-list"></div>
+
+              <button class="load-more" id="load-more" type="button" hidden>
+                Tampilkan cafe lagi
+              </button>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="mood-banner" aria-label="Pilih suasana cafe">
+      <div class="container mood-banner-inner">
+        <div class="mood-copy">
+          <span class="script-note">Bingung mau ke mana?</span>
+          <h2>Pilih <em>mood</em>-nya dulu, cafe-nya nyusul.</h2>
+        </div>
+        <div class="mood-actions">
+          <button type="button" class="mood-card mood-nongkrong" data-mood="nongkrong">
+            <span class="mood-icon">☕</span>
+            <span><b>Nongkrong</b><small>Ngobrol sampai lupa waktu</small></span>
+            <span class="mood-arrow">→</span>
+          </button>
+          <button type="button" class="mood-card mood-belajar" data-mood="belajar">
+            <span class="mood-icon">✎</span>
+            <span><b>Belajar</b><small>Cari sudut yang bikin fokus</small></span>
+            <span class="mood-arrow">→</span>
+          </button>
+          <button type="button" class="mood-card mood-wfc" data-mood="wfc">
+            <span class="mood-icon">⌘</span>
+            <span><b>WFC</b><small>Kerja remote tetap produktif</small></span>
+            <span class="mood-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <a class="brand brand-light" href="index.html"><span>CafeYuk</span><b>!</b></a>
+          <p>Temukan cafe yang pas buat nongkrong, belajar, atau WFC di Kalimantan Selatan.</p>
+          <span class="footer-tag">Dibuat dengan kopi &amp; QGIS.</span>
+        </div>
+        <div class="footer-column">
+          <h3>Jelajahi</h3>
+          <a href="#jelajah">Cari Cafe</a>
+          <a href="about.html">Tentang Kami</a>
+          <a href="https://www.instagram.com/soraawistaria/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div class="footer-column">
+          <h3>Catatan</h3>
+          <span>Data peta dari ekspor QGIS</span>
+          <span>1.043+ titik cafe</span>
+          <span>Update November 2026</span>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span data-year>2026</span> CafeYuk! · Proyek WebGIS independen</span>
+        <span>Semua cafe punya cerita. Pilih yang cocok buatmu.</span>
+      </div>
+    </footer>
+
+    <dialog class="filter-dialog" id="filter-dialog" aria-labelledby="filter-title">
+      <div class="filter-card">
+        <div class="filter-head">
+          <div>
+            <p class="results-kicker">Filter lengkap</p>
+            <h2 id="filter-title">Atur sesuai rencanamu.</h2>
+          </div>
+          <button class="icon-button" id="close-filter" type="button" aria-label="Tutup filter">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+          </button>
+        </div>
+
+        <form id="filter-form">
+          <div class="filter-body">
+            <div class="form-group">
+              <label class="form-label" for="filter-area">Lokasi</label>
+              <div class="select-shell">
+                <select id="filter-area" name="area">
+                  <option value="Semua">Semua area</option>
+                </select>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 9.5 5 5 5-5"></path></svg>
+              </div>
+            </div>
+
+            <fieldset class="filter-group">
+              <legend>Jenis tempat</legend>
+              <div class="choice-grid">
+                <label class="choice">
+                  <input type="radio" name="filter-category" value="Semua" checked />
+                  <span>Semua</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="filter-category" value="coffee" />
+                  <span>Coffee shop</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="filter-category" value="cafe" />
+                  <span>Cafe</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="filter-category" value="restaurant" />
+                  <span>Resto</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Rating minimal</legend>
+              <div class="choice-grid">
+                <label class="choice">
+                  <input type="radio" name="filter-rating" value="0" checked />
+                  <span>Semua</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="filter-rating" value="4" />
+                  <span>4.0+</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="filter-rating" value="4.5" />
+                  <span>4.5+</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Suasana yang cocok</legend>
+              <div class="choice-grid choice-grid-three">
+                <label class="choice">
+                  <input type="checkbox" name="filter-vibe" value="Nongkrong" />
+                  <span>Nongkrong</span>
+                </label>
+                <label class="choice">
+                  <input type="checkbox" name="filter-vibe" value="Belajar" />
+                  <span>Belajar</span>
+                </label>
+                <label class="choice">
+                  <input type="checkbox" name="filter-vibe" value="WFC" />
+                  <span>WFC</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="switch-row" for="filter-open-now">
+              <span>
+                <b>Hanya yang buka sekarang</b>
+                <small>Berdasarkan jam operasional hari ini</small>
+              </span>
+              <span class="switch">
+                <input type="checkbox" id="filter-open-now" name="open-now" />
+                <span class="switch-track" aria-hidden="true"></span>
+              </span>
+            </label>
+          </div>
+
+          <div class="filter-foot">
+            <button class="button button-ghost" type="button" id="reset-filter">Reset</button>
+            <button class="button button-primary filter-apply" type="submit">
+              Tampilkan <span id="filter-preview">1.043 cafe</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="data-error" data-catalog-error hidden role="alert"></div>
+
+    <script src="qgis2web_2026_11_01-12_33_45_135385/js/leaflet.js"></script>
+    <script src="qgis2web_2026_11_01-12_33_45_135385/js/leaflet.markercluster.js"></script>
+    <script src="qgis2web_2026_11_01-12_33_45_135385/data/batas_kota_2.js"></script>
+    <script src="qgis2web_2026_11_01-12_33_45_135385/data/clean_dataset_cafe_kalsel_1.js"></script>
+    <script src="assets/js/catalog.js"></script>
+    <script src="assets/js/site.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
